@@ -121,10 +121,10 @@ setInterval(() => {
     for (let i = 0; i < 20; i++) {
         ballsArray.push(new Balls(mouseX, mouseY));
     }
-}, 100); // Adjust the interval (in milliseconds) as needed
+}, 200); // Adjust the interval (in milliseconds) as needed
 
-const year = new Date().getFullYear();
-document.getElementById("newYear").innerHTML = `Happy New Year ${year}`;
+const year = new Date(2024, 0, 1, 00, 00).getFullYear();
+document.getElementById("newYear").innerHTML = `${year}`;
 
 // Always call the animate function at the bottom of the code!
 // animate();
