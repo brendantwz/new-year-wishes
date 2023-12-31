@@ -123,7 +123,7 @@ setInterval(() => {
     }
 }, 200); // Adjust the interval (in milliseconds) as needed
 
-const year = new Date(2024, 0, 1, 00, 00).getFullYear();
+const year = new Date(2024, 0, 1).getFullYear();
 document.getElementById("newYear").innerHTML = `${year}`;
 
 // Always call the animate function at the bottom of the code!
