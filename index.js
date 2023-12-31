@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
-//Set Cavnas Width and Height to Full Screen
+//Set Canvas Width and Height to Full Screen
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -111,25 +111,27 @@ function animate() {
     context.fillRect(0,0,canvas.width,canvas.height);
     renderBalls();
     renderCircles();
-    requestAnimationFrame(animate)
 }
 
-let mouseX = 0;
-let mouseY = 0;
 
-canvas.addEventListener('click',(e)=>{
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    circlesArray.push(new Circle(mouseX,mouseY))
-    //Push 20 Balls in the array and render on the canvas
+setInterval(() => {
+    const mouseX = Math.random() * canvas.width;
+    const mouseY = Math.random() * canvas.height;
+    circlesArray.push(new Circle(mouseX, mouseY));
     for (let i = 0; i < 20; i++) {
-        ballsArray.push(new Balls(mouseX,mouseY))
+        ballsArray.push(new Balls(mouseX, mouseY));
     }
-})
-
+}, 100); // Adjust the interval (in milliseconds) as needed
 
 const year = new Date().getFullYear();
 document.getElementById("newYear").innerHTML = `Happy New Year ${year}`;
 
 // Always call the animate function at the bottom of the code!
-animate();
+// animate();
+// Call the animate function and requestAnimationFrame
+function animateLoop() {
+    animate();
+    requestAnimationFrame(animateLoop);
+}
+
+animateLoop();
